@@ -1,0 +1,60 @@
+{
+  "quality": {
+    "cpu_rows": 1340000,
+    "vm_count": 10000,
+    "timestamps": 134,
+    "first_timestamp": 0,
+    "last_timestamp": 39900,
+    "cadence_seconds": 300,
+    "observations_per_vm": 134,
+    "missing_values": 0,
+    "duplicate_vm_timestamp_pairs": 0,
+    "invalid_cpu_rows": 0,
+    "missing_vm_timestamp_pairs": 0,
+    "input_sorted_by_timestamp": true,
+    "metadata_rows": 10000,
+    "metadata_missing_values": 0,
+    "duplicate_metadata_vm_ids": 0,
+    "matching_vm_populations": true
+  },
+  "split": {
+    "training_observations": 110,
+    "holdout_observations": 24,
+    "training_first_timestamp": 0,
+    "training_last_timestamp": 32700,
+    "holdout_first_timestamp": 33000,
+    "holdout_last_timestamp": 39900
+  },
+  "training": {
+    "cpu_mean_pct": 9.414089019539007,
+    "cpu_min_pct": 9.111633601754887,
+    "cpu_max_pct": 9.912175173984915,
+    "cpu_std_percentage_points": 0.19356833547362823,
+    "cpu_first_pct": 9.396897973701181,
+    "cpu_last_pct": 9.164556174985146,
+    "lag1_autocorrelation": 0.6672358236125617,
+    "largest_absolute_5min_change_pp": 0.4368314267409801,
+    "constant_active_vm_count": true,
+    "zero_cpu_observation_fraction": 0.0,
+    "observations_at_least_80pct_fraction": 0.012720909090909092,
+    "vm_mean_cpu_below_5pct_fraction": 0.4635,
+    "vm_mean_cpu_at_least_80pct_fraction": 0.0099,
+    "cpu_observation_quantiles_pct": {
+      "0.0": 0.007158921626865188,
+      "0.25": 2.486945395240028,
+      "0.5": 5.119809152561594,
+      "0.75": 9.647973827501037,
+      "0.9": 19.691118594608653,
+      "0.95": 37.293248468366095,
+      "0.99": 87.40634736453234,
+      "1.0": 99.48802665399455
+    }
+  },
+  "metadata_lifetime_checks": {
+    "created_before_window": 0,
+    "created_at_window_start": 10000,
+    "created_during_training": 0,
+    "deleted_during_training": 0
+  },
+  "holdout_target_values_exported": false
+}

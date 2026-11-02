@@ -1,0 +1,4 @@
+fold,train_n,train_start,train_end,validation_start,validation_end,validation_n,cpu_peak_threshold_pct
+1,38,0,11100,11400,18300,24,9.521707746028408
+2,62,0,18300,18600,25500,24,9.666874919980796
+3,86,0,25500,25800,32700,24,9.781485494026896

@@ -1,0 +1,7 @@
+# Preserve exact artifact bytes across clones because provenance and the
+# submission manifest record SHA-256 hashes of the saved files.
+# Unsetting text conversion leaves normal textual diffs available.
+* -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+*.md whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+*.pdf binary
+*.png binary

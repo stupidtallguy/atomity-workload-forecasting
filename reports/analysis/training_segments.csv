@@ -1,0 +1,15 @@
+dimension,segment,vm_count,mean_cpu_pct
+vm_category,Delay-insensitive,6180,8.257265890248375
+vm_category,Interactive,3091,11.505149960490012
+vm_category,Unknown,729,10.35468925347121
+virtual_core_bucket,2,7534,9.764162833337474
+virtual_core_bucket,24,62,11.428830856129746
+virtual_core_bucket,4,1908,7.918722878217823
+virtual_core_bucket,8,486,9.658399081248433
+virtual_core_bucket,>24,10,6.619469081917167
+memory_gb_bucket,2,3904,8.80225392134463
+memory_gb_bucket,32,1383,7.814017174669405
+memory_gb_bucket,4,2475,11.459541216235001
+memory_gb_bucket,64,82,11.217160055534702
+memory_gb_bucket,8,2146,9.143401122245214
+memory_gb_bucket,>64,10,6.619469081917167

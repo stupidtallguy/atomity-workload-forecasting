@@ -1,14 +1,15 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import numpy as np
 import pandas as pd
 
 
 @dataclass(frozen=True)
 class TimeSplit:
-    train_end: pd.Timestamp
-    validation_start: pd.Timestamp
-    validation_end: pd.Timestamp
+    train_end: pd.Timestamp | int | float
+    validation_start: pd.Timestamp | int | float
+    validation_end: pd.Timestamp | int | float
 
 
 def rolling_origin_splits(
@@ -22,13 +23,23 @@ def rolling_origin_splits(
 
     `horizon=288` is one day at 5-minute cadence.
     """
-    if horizon <= 0 or min_train_size <= 0:
-        raise ValueError("horizon and min_train_size must be positive")
-    ts = pd.to_datetime(frame[timestamp_col], utc=True)
-    if not ts.is_monotonic_increasing:
-        raise ValueError("timestamps must be sorted")
-    n = len(frame)
     step = horizon if step is None else step
+    if horizon <= 0 or min_train_size <= 0 or step <= 0:
+        raise ValueError("horizon, min_train_size, and step must be positive")
+    if frame.empty:
+        raise ValueError("frame must not be empty")
+    raw = frame[timestamp_col]
+    # Preserve source-relative seconds instead of interpreting numbers as
+    # Unix nanoseconds. Calendar timestamps retain the starter's UTC behavior.
+    ts = raw if pd.api.types.is_numeric_dtype(raw) else pd.to_datetime(raw, utc=True)
+    if ts.isna().any() or (pd.api.types.is_numeric_dtype(ts) and not np.isfinite(ts).all()):
+        raise ValueError("timestamps must be finite and nonmissing")
+    if not ts.is_monotonic_increasing or ts.duplicated().any():
+        raise ValueError("timestamps must be sorted and unique")
+    deltas = ts.diff().dropna()
+    if not deltas.empty and not deltas.eq(deltas.iloc[0]).all():
+        raise ValueError("timestamps must be evenly sampled")
+    n = len(frame)
     out: list[TimeSplit] = []
     train_end_idx = min_train_size
     while train_end_idx + horizon <= n:

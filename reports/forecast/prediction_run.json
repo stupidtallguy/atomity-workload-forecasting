@@ -1,0 +1,35 @@
+{
+  "status": "predictions_generated_without_holdout_scoring",
+  "rows": 24,
+  "columns": [
+    "timestamp",
+    "active_vm_count",
+    "aggregate_cpu_utilization"
+  ],
+  "first_timestamp": 33000,
+  "last_timestamp": 39900,
+  "training_observations": 110,
+  "training_last_timestamp": 32700,
+  "training_targets_sha256": "1ac562d082b89b5a96b112e04a7ca2da552f59cd068ed956ad8e459c2ed6d64a",
+  "matches_frozen_training": true,
+  "matches_frozen_split": true,
+  "application": "frozen_data_reproduction",
+  "cpu_method": "moving_average",
+  "cpu_window": 12,
+  "active_vm_method": "persistence",
+  "margin_percentage_points": 0.4760297844203567,
+  "headroom_calibration_matches_input_training": true,
+  "headroom_coverage_guaranteed": false,
+  "source_cpu_sha256": "f961964e51f2250534a1273ce8b5aec76816b1ef9628d6356daad0f5af345440",
+  "frozen_method_sha256": "28f3dcd679d5db1a09163f9f65cda8e39743c636979d9bbc4d888841521cd02a",
+  "prediction_implementation_sha256": "0561ffc19c891cd9382b0eb09c5c1990f59cc8f82c2401c4a9e220df227a8a09",
+  "predictions_sha256": "20f26ea0053514857088f93955bca3fe970ca2d0ab64880abb92e2749d181e7d",
+  "operational_plan_sha256": "b485878143357ba8b9860f8d54e5f25d19f07875cfda59f4505d86866f02592c",
+  "holdout_labels_used_for_forecasting": false,
+  "holdout_scored": false,
+  "environment": {
+    "python": "3.11.9",
+    "numpy": "2.4.6",
+    "pandas": "3.1.0"
+  }
+}

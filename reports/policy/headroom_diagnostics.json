@@ -1,0 +1,43 @@
+{
+  "margin_percentage_points": 0.4760297844203567,
+  "calibration_point_coverage": 0.9583333333333334,
+  "calibration_peak_n": 16,
+  "calibration_peak_breaches": 3,
+  "calibration_horizons_without_breach": 2,
+  "calibration_horizons": 3,
+  "warmup_folds": [
+    1
+  ],
+  "sequential_prior_fold_checks": [
+    {
+      "fold": 2,
+      "prior_residuals": 24,
+      "n": 24,
+      "margin_pp": 0.542241121969,
+      "covered": 24,
+      "breaches": 0,
+      "point_coverage": 1.0,
+      "mean_unused_allowance_pp": 0.710646925888,
+      "max_exceedance_pp": 0.0,
+      "peak_n": 6,
+      "peak_breaches": 0,
+      "alert_events": 0
+    },
+    {
+      "fold": 3,
+      "prior_residuals": 48,
+      "n": 24,
+      "margin_pp": 0.490046549723,
+      "covered": 24,
+      "breaches": 0,
+      "point_coverage": 1.0,
+      "mean_unused_allowance_pp": 0.587301522149,
+      "max_exceedance_pp": 0.0,
+      "peak_n": 0,
+      "peak_breaches": 0,
+      "alert_events": 0
+    }
+  ],
+  "final_holdout_predictions_generated": false,
+  "holdout_labels_used": false
+}

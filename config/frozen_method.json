@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "status": "frozen_before_holdout",
+  "frozen_on": "2026-11-02",
+  "data_release": "data-v1",
+  "cadence_seconds": 300,
+  "training": {
+    "observations": 110,
+    "first_timestamp": 0,
+    "last_timestamp": 32700,
+    "aggregate_targets_sha256": "1ac562d082b89b5a96b112e04a7ca2da552f59cd068ed956ad8e459c2ed6d64a"
+  },
+  "forecast_horizon": {
+    "observations": 24,
+    "minutes": 120,
+    "first_timestamp": 33000,
+    "last_timestamp": 39900
+  },
+  "targets": {
+    "active_vm_count": {
+      "aggregation": "distinct observed VM IDs per timestamp",
+      "method": "persistence",
+      "minimum": 0,
+      "churn_uncertainty_calibrated": false
+    },
+    "aggregate_cpu_utilization": {
+      "aggregation": "unweighted mean of VM avg_cpu per timestamp, percent",
+      "method": "moving_average",
+      "window": 12,
+      "forecast_mode": "fixed origin; last 12 observed values averaged once for all 24 leads",
+      "bounds": [
+        0,
+        100
+      ]
+    }
+  },
+  "selection": {
+    "primary_metric": "pooled development CPU MAE",
+    "fold_training_sizes": [
+      38,
+      62,
+      86
+    ],
+    "validation_horizon": 24,
+    "validation_points": 72,
+    "refit": "use first 110 observations only; no fitting on holdout labels",
+    "missing_data": "fail on missing, invalid, duplicate, or incomplete observations",
+    "post_holdout_retuning": false
+  },
+  "headroom_policy": {
+    "kind": "empirical one-sided aggregate CPU planning allowance",
+    "quantile": 0.95,
+    "quantile_method": "higher",
+    "residual_definition": "actual minus point forecast, development validation only",
+    "calibration_residuals": 72,
+    "margin_percentage_points": 0.4760297844203567,
+    "planning_ceiling": "min(100, CPU point forecast + margin_percentage_points)",
+    "coverage_guaranteed": false,
+    "simultaneous_horizon_coverage_guaranteed": false,
+    "consecutive_breaches_for_review": 2,
+    "breach_rule": "observed aggregate CPU > its fixed-origin planning ceiling",
+    "review_rule": "alert once at the second consecutive breach; clear the run on recovery",
+    "capacity_budget_pct": null,
+    "budget_rule": "if an independently established budget B exists, review capacity before max(ceiling) >= B",
+    "automatic_downscaling": false,
+    "hardware_capacity_conversion": "unavailable; mean utilization is not total consumed cores",
+    "production_refresh_minutes": 5,
+    "challenge_refresh_within_horizon": false
+  },
+  "holdout_labels_used": false,
+  "source_sha256": {
+    "baselines.py": "dbf5cc0fae223da98bbd5d4ecc69d38c3e24b7684b8d9aed3d02b47a46147f87",
+    "data.py": "aa8757379fc745171a95798ac61e4da0036f90f0aea381c70a0610fbe93e2a3d",
+    "validation.py": "d50ed41da230da993bb15b30a82e8af0cf0157b60f340cf3c91b2bf2fb91038b",
+    "metrics.py": "13316008dc34a801483e1956ac255f3dd39f25c337162f8442387c90fe51f21b",
+    "backtest.py": "bae73381eac1c1e77b3e07e596b10b8f9a6546d25a55816bf99218bddcb5bf7f",
+    "models.py": "3c6651738afcb6cada7b62485d6a0bb678b4c6f4d007d9f4d49efbc515696a7d",
+    "compare.py": "e7f3fb4f78f20c84cc42e2494af806f10addd577eef1c6f6bfebd83d493bb523",
+    "policy.py": "d428f3ec6a233189d0ab10bad3dd07a8fd33d728d68bb3bceeeb247af8dfdd23",
+    "freeze.py": "5cc42a62eee80fb5ee4f4d5f1367a2489c6cfc3402fd3ed3d84d3bcf8470eb65"
+  },
+  "environment": {
+    "python": "3.11.9",
+    "numpy": "2.4.6",
+    "pandas": "3.1.0"
+  }
+}

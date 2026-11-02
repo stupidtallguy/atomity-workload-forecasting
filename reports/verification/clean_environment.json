@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "verification_environment": "fresh Python virtual environment from extracted candidate archive",
+  "python": "3.11.9",
+  "dependency_install": "requirements-lock.txt",
+  "editable_install": "pip install --no-deps -e .",
+  "package_imported_from_extracted_source": true,
+  "pip_check": "passed",
+  "pytest": {
+    "passed": 70,
+    "failed": 0
+  },
+  "full_pipeline": "python scripts/reproduce.py",
+  "full_pipeline_exit_code": 0,
+  "numerical_evidence_files_identical": 29,
+  "predictions_identical": true,
+  "frozen_method_unchanged": true,
+  "predictions_sha256": "20f26ea0053514857088f93955bca3fe970ca2d0ab64880abb92e2749d181e7d",
+  "tested_candidate_archive_sha256": "0805ba810022523a5dda01eec5ca6194a7cc22c7734f6f3727a7bee154cf7f2d",
+  "source_code_tree_sha256": "518f9171de9546a675e9a2394d2d9f08c0ad50fde6ac21b7f0439659a31d2301",
+  "test_tree_sha256": "99d2229c4b4243a12863d23402e363e3891a97fbef94cee78364da61f2d0df05",
+  "helper_scripts_tree_sha256": "f860aa3b1d50064c2384cf651d40146bed710fc6f609f23170c0f9cf0d1e2357",
+  "requirements_lock_sha256": "1521ad583b7818205b3bbe7959ed8d75a3e4e18f84c3f8908ede99180ae8b2ca",
+  "final_report_pages": 6,
+  "final_report_visually_verified": true,
+  "raw_dataset_packaged": false,
+  "virtual_environment_packaged": false,
+  "ide_settings_packaged": false,
+  "scope": "Reproduced on Windows with the recorded Python and dependency versions; other platforms were not exercised."
+}

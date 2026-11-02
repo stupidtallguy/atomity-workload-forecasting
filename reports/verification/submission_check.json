@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "release_checksums_verified": [
+    "DATA_CARD.md",
+    "vm_cpu_readings.csv.gz",
+    "vm_metadata.csv.gz"
+  ],
+  "frozen_source_and_configuration_verified": true,
+  "official_training_fingerprint_matches": true,
+  "prediction_schema_and_24_timestamps_verified": true,
+  "prediction_values_match_frozen_methods": true,
+  "generation_and_evaluation_hashes_match": true,
+  "reported_scores_match_actual_errors": true,
+  "local_markdown_links_checked": 36,
+  "predictions_sha256": "20f26ea0053514857088f93955bca3fe970ca2d0ab64880abb92e2749d181e7d",
+  "frozen_method_sha256": "28f3dcd679d5db1a09163f9f65cda8e39743c636979d9bbc4d888841521cd02a"
+}
